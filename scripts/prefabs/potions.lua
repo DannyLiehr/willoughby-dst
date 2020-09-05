@@ -221,7 +221,6 @@ local function mystery()
 	inst.AnimState:PlayAnimation("mystery",true)
 	inst.components.inventoryitem.imagename = "yellow_potion"
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/yellow_potion.xml"
-	inst.components.edible.healthvalue = 0
 	inst.components.edible:SetOnEatenFn(oneatenmystery)
 
     return inst

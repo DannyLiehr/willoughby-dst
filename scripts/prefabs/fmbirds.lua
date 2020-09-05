@@ -4,139 +4,229 @@ birds.lua
 Different birds are just reskins of crow without any special powers at the moment.
 To make a new bird add it at the bottom of the file as a 'makebird(name)' call
 
-This assumes the bird already has a build, inventory icon, sounds and a feather_name prefab exists
+This assumes the bird already has a build, inventory icon, sounds and a feather_name prefab exists, unless no_feather is set
 
 ]]--
 
--- local brain = require "brains/birdbrain"
-local brain = require "brains/loonbrain"
+local brain = require "brains/birdbrain"
 
 local function ShouldSleep(inst)
-    return DefaultSleepTest(inst) and not inst.sg:HasStateTag("flying")
+    return DefaultSleepTest(inst) and not inst.sg:HasStateTag("flight")
 end
 
-
-
+local BIRD_TAGS = { "bird" }
 local function OnAttacked(inst, data)
-    local x,y,z = inst.Transform:GetWorldPosition()
-    local ents = TheSim:FindEntities(x,y,z, 30, {'bird'})
-
+    local x, y, z = inst.Transform:GetWorldPosition()
+    local ents = TheSim:FindEntities(x, y, z, 30, BIRD_TAGS)
     local num_friends = 0
     local maxnum = 5
-    for k,v in pairs(ents) do
+    for k, v in pairs(ents) do
         if v ~= inst then
             v:PushEvent("gohome")
             num_friends = num_friends + 1
         end
 
         if num_friends > maxnum then
-
-			return
+            return
         end
-
     end
 end
 
 local function OnTrapped(inst, data)
-
     if data and data.trapper and data.trapper.settrapsymbols then
         data.trapper.settrapsymbols(inst.trappedbuild)
     end
+end
+
+local function OnPutInInventory(inst)
+    --Otherwise sleeper won't work if we're in a busy state
+    inst.sg:GoToState("idle")
 end
 
 local function OnDropped(inst)
     inst.sg:GoToState("stunned")
 end
 
-local function SeedSpawnTest()
-    return not TheWorld.state.iswinter
+local function ChooseItem()
+    local mercy_items =
+    {
+        "flint",
+        "flint",
+        "flint",
+        "twigs",
+        "twigs",
+        "cutgrass",
+    }
+    return mercy_items[math.random(#mercy_items)]
 end
 
-local function makebird(name, soundname)
-    local assets=
+local function ChooseSeeds()
+    return not TheWorld.state.iswinter and "seeds" or nil
+end
+
+local function SpawnPrefabChooser(inst)
+    if TheWorld.state.cycles <= 3 then
+        -- The item drop is for drop-in players, players from the start of the game have to forage like normal
+        return ChooseSeeds()
+    end
+
+    local x, y, z = inst.Transform:GetWorldPosition()
+    local players = FindPlayersInRange(x, y, z, 20, true)
+
+    -- Give item if only fresh players are nearby
+    local oldestplayer = -1
+    for i, player in ipairs(players) do
+        if player.components.age ~= nil then
+            local playerage = player.components.age:GetAgeInDays()
+            if playerage >= 3 then
+                return ChooseSeeds()
+            elseif playerage > oldestplayer then
+                oldestplayer = playerage
+            end
+        end
+    end
+
+    -- Lower chance for older players to get item
+    return oldestplayer >= 0
+        and math.random() < .35 - oldestplayer * .1
+        and ChooseItem()
+        or ChooseSeeds()
+end
+
+
+local function makebird(name, soundname, no_feather, bank, custom_loot_setup, water_bank, tacklesketch)
+    local assets =
     {
-	    Asset("ANIM", "anim/crow.zip"),
-	    Asset("ANIM", "anim/"..name.."_build.zip"),
-	    Asset("SOUND", "sound/birds.fsb"),
+        Asset("ANIM", "anim/crow.zip"),
+        Asset("ANIM", "anim/"..name.."_build.zip"),
+        Asset("SOUND", "sound/birds.fsb"),
     }
 
-    local prefabs =
-    {
-        "seeds",
-        "smallmeat",
-        "cookedsmallmeat",
-        "feather_"..name,
-		"fish",
-    }
+    if bank ~= nil then
+        table.insert(assets, Asset("ANIM", "anim/"..bank..".zip"))
+    end
+
+    if water_bank ~= nil then
+        table.insert(assets, Asset("ANIM", "anim/"..water_bank..".zip"))
+    end
+
+    -- local prefabs = name == "quagmire_pigeon" and
+    -- {
+    --     "quagmire_smallmeat",
+    --     "quagmire_cookedsmallmeat",
+    -- } or
+    -- {
+    --     "seeds",
+    --     "smallmeat",
+    --     "cookedsmallmeat",
+    --
+    --     --mercy items
+    --     "flint",
+    --     "twigs",
+    --     "cutgrass",
+    -- }
+
+	if not no_feather then
+        table.insert(prefabs, "feather_"..name)
+	end
+
+
+	if tacklesketch then
+		table.insert(prefabs, type(tacklesketch) == "string" and tacklesketch or ("oceanfishingbobber_"..name.."_tacklesketch"))
+	end
+
+	local soundbank = "dontstarve"
+	if type(soundname) == "table" then
+		soundbank = soundname.bank
+		soundname = soundname.name
+	end
 
     local function fn()
         local inst = CreateEntity()
 
         --Core components
         inst.entity:AddTransform()
-
-
-
         inst.entity:AddPhysics()
-
         inst.entity:AddAnimState()
         inst.entity:AddDynamicShadow()
-
-
         inst.entity:AddSoundEmitter()
         inst.entity:AddNetwork()
+        inst.entity:AddLightWatcher()
 
         --Initialize physics
         inst.Physics:SetCollisionGroup(COLLISION.CHARACTERS)
         inst.Physics:ClearCollisionMask()
-        inst.Physics:CollidesWith(COLLISION.WORLD)
-        inst.Physics:SetSphere(1)
+        if water_bank ~= nil then
+            -- Birds that float can pass through LIMITS walls, i.e. when hopping.
+            inst.Physics:CollidesWith(COLLISION.GROUND)
+        else
+            inst.Physics:CollidesWith(COLLISION.WORLD)
+        end
         inst.Physics:SetMass(1)
-
+        inst.Physics:SetSphere(1)
 
         inst:AddTag("bird")
         inst:AddTag(name)
         inst:AddTag("smallcreature")
+        inst:AddTag("likewateroffducksback")
+        inst:AddTag("stunnedbybomb")
 
-		inst.color = .5 + math.random() * .5
-        inst.AnimState:SetMultColour(inst.color, inst.color, inst.color, 1)
+        --cookable (from cookable component) added to pristine state for optimization
+        inst:AddTag("cookable")
 
         inst.Transform:SetTwoFaced()
-        inst.AnimState:SetBank("crow")
+
+        inst.AnimState:SetBank(bank or "crow")
         inst.AnimState:SetBuild(name.."_build")
         inst.AnimState:PlayAnimation("idle")
-		inst.DynamicShadow:SetSize(1, .75)
+
+        inst.DynamicShadow:SetSize(1, .75)
         inst.DynamicShadow:Enable(false)
-        MakeFeedablePetPristine(inst)
+
+        MakeFeedableSmallLivestockPristine(inst)
+
+        if water_bank ~= nil then
+            MakeInventoryFloatable(inst)
+        end
+
+        inst.entity:SetPristine()
 
         if not TheWorld.ismastersim then
             return inst
         end
 
-        inst.entity:SetPristine()
-
         inst.sounds =
         {
-            takeoff = "fmbirds/birds/takeoff_"..soundname,
-            chirp = "fmbirds/birds/chirp_"..soundname,
+            takeoff = soundbank.."/birds/takeoff_"..soundname,
+            chirp = soundbank.."/birds/chirp_"..soundname,
             flyin = "dontstarve/birds/flyin",
         }
+
         inst.trappedbuild = name.."_build"
 
-        inst:AddComponent("locomotor")
+        inst:AddComponent("locomotor") -- locomotor must be constructed before the stategraph
         inst.components.locomotor:EnableGroundSpeedMultiplier(false)
-	    inst.components.locomotor:SetTriggersCreep(false)
+        inst.components.locomotor:SetTriggersCreep(false)
         inst:SetStateGraph("SGbird")
 
         inst:AddComponent("lootdropper")
-        inst.components.lootdropper:AddRandomLoot("feather_"..name, 1)
-        inst.components.lootdropper:AddRandomLoot("smallmeat", 1)
-        inst.components.lootdropper.numrandomloot = 1
+		if custom_loot_setup ~= nil then
+			custom_loot_setup(inst, prefabs)
+		else
+			if not no_feather then
+				inst.components.lootdropper:AddRandomLoot("feather_"..name, name == "canary" and .1 or 1)
+			end
+			if tacklesketch then
+				inst.components.lootdropper:AddChanceLoot(type(tacklesketch) == "string" and tacklesketch or ("oceanfishingbobber_"..name.."_tacklesketch"), .01)
+			end
+			inst.components.lootdropper:AddRandomLoot(name == "quagmire_pigeon" and "quagmire_smallmeat" or "smallmeat", 1)
+			inst.components.lootdropper.numrandomloot = 1
+		end
 
         inst:AddComponent("occupier")
 
         inst:AddComponent("eater")
-		inst.components.eater:SetDiet( { FOODGROUP.OMNI }, {FOODGROUP.OMNI } )
+        inst.components.eater:SetDiet({ FOODTYPE.SEEDS }, { FOODTYPE.SEEDS })
 
         inst:AddComponent("sleeper")
         inst.components.sleeper:SetSleepTest(ShouldSleep)
@@ -144,45 +234,51 @@ local function makebird(name, soundname)
         inst:AddComponent("inventoryitem")
         inst.components.inventoryitem.nobounce = true
         inst.components.inventoryitem.canbepickedup = false
-
-        inst.components.inventoryitem.imagename = name
-        inst.components.inventoryitem.atlasname = "images/inventoryimages/"..name..".xml"
+        inst.components.inventoryitem.canbepickedupalive = true
+        if water_bank == nil then
+            inst.components.inventoryitem:SetSinks(true)
+        end
 
         inst:AddComponent("cookable")
-        inst.components.cookable.product = "cookedsmallmeat"
+        inst.components.cookable.product = name == "quagmire_pigeon" and "quagmire_cookedsmallmeat" or "cookedsmallmeat"
 
-
-        inst:AddComponent("combat")
-        inst.components.combat.hiteffectsymbol = "crow_body"
-        --inst.components.combat.canbeattackedfn = canbeattacked
         inst:AddComponent("health")
         inst.components.health:SetMaxHealth(TUNING.BIRD_HEALTH)
         inst.components.health.murdersound = "dontstarve/wilson/hit_animal"
 
         inst:AddComponent("inspectable")
 
+        if water_bank ~= nil then
+            inst.flyawaydistance = TUNING.WATERBIRD_SEE_THREAT_DISTANCE
+        else
+            inst.flyawaydistance = TUNING.BIRD_SEE_THREAT_DISTANCE
+        end
+
+        if TheNet:GetServerGameMode() ~= "quagmire" then
+            inst:AddComponent("combat")
+            inst.components.combat.hiteffectsymbol = "crow_body"
+
+            MakeSmallBurnableCharacter(inst, "crow_body")
+            MakeTinyFreezableCharacter(inst, "crow_body")
+        end
 
         inst:SetBrain(brain)
 
-        MakeSmallBurnableCharacter(inst, "crow_body")
-        MakeTinyFreezableCharacter(inst, "crow_body")
-
-		inst:AddComponent("hauntable")
+        inst:AddComponent("hauntable")
         inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-        inst:AddComponent("periodicspawner")
-        inst.components.periodicspawner:SetPrefab("fish")
-        inst.components.periodicspawner:SetDensityInRange(100, 50)
-        inst.components.periodicspawner:SetMinimumSpacing(8)
-		inst.components.periodicspawner:SetSpawnTestFn( SeedSpawnTest )
 
-
+        if not GetGameModeProperty("disable_bird_mercy_items") then
+            inst:AddComponent("periodicspawner")
+            -- inst.components.periodicspawner:SetPrefab(SpawnPrefabChooser)
+            inst.components.periodicspawner:SetPrefab("fish")
+            inst.components.periodicspawner:SetDensityInRange(20, 2)
+            inst.components.periodicspawner:SetMinimumSpacing(8)
+        end
 
         inst:ListenForEvent("ontrapped", OnTrapped)
-
-
         inst:ListenForEvent("attacked", OnAttacked)
 
-local birdspawner = TheWorld.components.birdspawner
+        local birdspawner = TheWorld.components.birdspawner
         if birdspawner ~= nil then
             inst:ListenForEvent("onremove", birdspawner.StopTrackingFn)
             inst:ListenForEvent("enterlimbo", birdspawner.StopTrackingFn)
@@ -190,11 +286,49 @@ local birdspawner = TheWorld.components.birdspawner
             birdspawner:StartTracking(inst)
         end
 
-        MakeFeedablePet(inst, TUNING.BIRD_PERISH_TIME, nil, OnDropped)
+        MakeFeedableSmallLivestock(inst, TUNING.BIRD_PERISH_TIME, OnPutInInventory, OnDropped)
+
+        if name == "canary" and TheWorld.components.toadstoolspawner ~= nil then
+            inst.components.occupier.onoccupied = OnCanaryOccupied
+            inst:ListenForEvent("exitlimbo", StopInhalingGas)
+            inst._gasuptask = nil
+            inst._gasdowntask = nil
+            inst._gaslevel = 0
+
+            --Other bird poisoned
+            inst:ListenForEvent("birdpoisoned", function(world, data)
+                if data.bird ~= inst then
+                    inst._gaslevel = math.min(inst._gaslevel, math.random(6) - 1)
+                end
+            end, TheWorld)
+
+            inst.OnSave = OnCanarySave
+            inst.OnLoad = OnCanaryLoad
+        end
+
+        if water_bank ~= nil then
+            inst:ListenForEvent("floater_startfloating", function(inst) inst.AnimState:SetBank(water_bank) end)
+            inst:ListenForEvent("floater_stopfloating", function(inst) inst.AnimState:SetBank(bank or "crow") end)
+        end
+
         return inst
     end
 
-    return Prefab("forest/animals/"..name, fn, assets, prefabs)
+    return Prefab(name, fn, assets, prefabs)
 end
 
-return makebird("loon", "loon")
+local function puffin_loot_setup(inst, prefab_deps)
+	inst.components.lootdropper:AddRandomLoot("feather_crow", 1)
+	inst.components.lootdropper:AddRandomLoot("smallmeat", 1)
+	inst.components.lootdropper.numrandomloot = 1
+
+    table.insert(prefab_deps, "feather_crow")
+end
+
+-- makebird(name, soundname, no_feather, bank, custom_loot_setup, water_bank, tacklesketch)
+return makebird("loon", "crow", true, "crow", nil, nil, nil)
+    -- makebird("robin", "robin", nil, nil, nil, nil, true),
+    -- makebird("robin_winter", "junco", nil, nil, nil, nil, true),
+    -- makebird("canary", "canary", nil, nil, nil, nil, true),
+    -- makebird("quagmire_pigeon", "quagmire_pigeon", true),
+    -- makebird("puffin", {name="puffin", bank="turnoftides"}, true, "puffin", puffin_loot_setup, "puffin_water")

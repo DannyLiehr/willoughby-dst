@@ -14,15 +14,22 @@ assert(TheWorld.ismastersim, "BirdSpawner should not exist on client")
 local BIRD_TYPES =
 {
     --[GROUND.IMPASSABLE] = { "" },
-		--[GROUND.ROAD] = {"bird1", bird2},
-		--[GROUND.ROCKY] = {bird, bird, bird},
-		--[GROUND.DIRT] = {bird, bird, bird, bird},
-		--[GROUND.SAVANNA] = {bird, bird, bird},
-		--[GROUND.GRASS] = {"loon"},
-		[GROUND.FOREST] = {"loon"},
-		[GROUND.MARSH] = {"loon"},
-        --[GROUND.DESERT_DIRT] = {bird, bird, bird},
-        [GROUND.DECIDUOUS] = {"loon"},
+    --[GROUND.ROAD] = { "crow" },
+	--------------------------------------
+    -- [GROUND.ROCKY] = { "crow" },
+    -- [GROUND.DIRT] = { "crow" },
+    -- [GROUND.SAVANNA] = { "robin", "crow" },
+    -- [GROUND.GRASS] = { "robin" },
+    [GROUND.FOREST] = { "loon" },
+    [GROUND.MARSH] = { "loon" },
+
+    -- [GROUND.OCEAN_COASTAL] = {"puffin"},
+    -- [GROUND.OCEAN_COASTAL_SHORE] = {"puffin"},
+    -- [GROUND.OCEAN_SWELL] = {"puffin"},
+    -- [GROUND.OCEAN_ROUGH] = {"puffin"},
+    -- [GROUND.OCEAN_BRINEPOOL] = {"puffin"},
+    -- [GROUND.OCEAN_BRINEPOOL_SHORE] = {"puffin"},
+    -- [GROUND.OCEAN_HAZARDOUS] = {"puffin"},
 }
 
 --------------------------------------------------------------------------
@@ -41,18 +48,28 @@ local _groundcreep = TheWorld.GroundCreep
 local _updating = false
 local _birds = {}
 local _maxbirds = TUNING.BIRD_SPAWN_MAX
-local _minspawndelay = (TUNING.BIRD_SPAWN_DELAY.min * 2)
-local _maxspawndelay = (TUNING.BIRD_SPAWN_DELAY.max * 2)
-local _timescale = 2
+local _minspawndelay = TUNING.BIRD_SPAWN_DELAY.min
+local _maxspawndelay = TUNING.BIRD_SPAWN_DELAY.max
+local _timescale = 1
 
 --------------------------------------------------------------------------
 --[[ Private member functions ]]
 --------------------------------------------------------------------------
 
+local function CalcValue(player, basevalue, modifier)
+	local ret = basevalue
+	local attractor = player and player.components.birdattractor
+	if attractor then
+		ret = ret + attractor.spawnmodifier:CalculateModifierFromKey(modifier)
+	end
+	return ret
+end
+
+local BIRD_MUST_TAGS = { "bird" }
 local function SpawnBirdForPlayer(player, reschedule)
     local pt = player:GetPosition()
-    local ents = TheSim:FindEntities(pt.x, pt.y, pt.z, 64, { "bird" })
-    if #ents < _maxbirds then
+    local ents = TheSim:FindEntities(pt.x, pt.y, pt.z, 64, BIRD_MUST_TAGS)
+    if #ents < CalcValue(player, _maxbirds, "maxbirds") then
         local spawnpoint = self:GetSpawnPoint(pt)
         if spawnpoint ~= nil then
             self:SpawnBird(spawnpoint)
@@ -64,8 +81,10 @@ end
 
 local function ScheduleSpawn(player, initialspawn)
     if _scheduledtasks[player] == nil then
-        local lowerbound = initialspawn and 0 or _minspawndelay
-        local upperbound = initialspawn and (_maxspawndelay - _minspawndelay) or _maxspawndelay
+		local mindelay = CalcValue(player, _minspawndelay, "mindelay")
+		local maxdelay = CalcValue(player, _maxspawndelay, "maxdelay")
+        local lowerbound = initialspawn and 0 or mindelay
+        local upperbound = initialspawn and (maxdelay - mindelay) or maxdelay
         _scheduledtasks[player] = player:DoTaskInTime(GetRandomMinMax(lowerbound, upperbound) * _timescale, SpawnBirdForPlayer, ScheduleSpawn)
     end
 end
@@ -98,14 +117,32 @@ local function ToggleUpdate(force)
     end
 end
 
+local SCARECROW_TAGS = { "scarecrow" }
 local function PickBird(spawnpoint)
-    local tile = _map:GetTileAtPoint(spawnpoint:Get())
-    local bird = GetRandomItem(BIRD_TYPES[tile] or { "loon" })
-    return _worldstate.iswinter and bird == "loon" and "loon" or bird
+    local bird = "crow"
+	if TheNet:GetServerGameMode() == "quagmire" then
+		bird = "quagmire_pigeon"
+	else
+	    local tile = _map:GetTileAtPoint(spawnpoint:Get())
+		if BIRD_TYPES[tile] ~= nil then
+			bird = GetRandomItem(BIRD_TYPES[tile])
+		end
+	end
+
+    if bird == "crow" then
+        local x, y, z = spawnpoint:Get()
+        local canarylure = TheSim:FindEntities(x, y, z, TUNING.BIRD_CANARY_LURE_DISTANCE, SCARECROW_TAGS)
+        if #canarylure ~= 0 then
+            bird = "canary"
+        end
+    end
+
+    return _worldstate.iswinter and bird == "robin" and "robin_winter" or bird
 end
 
+local SCARYTOPREY_TAGS = { "scarytoprey" }
 local function IsDangerNearby(x, y, z)
-    local ents = TheSim:FindEntities(x, y, z, 8, { "scarytoprey" })
+    local ents = TheSim:FindEntities(x, y, z, 8, SCARYTOPREY_TAGS)
     return next(ents) ~= nil
 end
 
@@ -164,21 +201,33 @@ inst:WatchWorldState("isnight", ToggleUpdate)
 inst:ListenForEvent("ms_playerjoined", OnPlayerJoined, TheWorld)
 inst:ListenForEvent("ms_playerleft", OnPlayerLeft, TheWorld)
 
-OnIsRaining(inst, _worldstate.israining)
-ToggleUpdate(true)
+--------------------------------------------------------------------------
+--[[ Post initialization ]]
+--------------------------------------------------------------------------
+
+function self:OnPostInit()
+    OnIsRaining(inst, _worldstate.israining)
+    ToggleUpdate(true)
+end
 
 --------------------------------------------------------------------------
 --[[ Public member functions ]]
 --------------------------------------------------------------------------
 
 function self:SetSpawnTimes(delay)
+	print "DEPRECATED: SetSpawnTimes() in birdspawner.lua, use birdattractor.spawnmodifier instead"
     _minspawndelay = delay.min
     _maxspawndelay = delay.max
 end
 
 function self:SetMaxBirds(max)
+	print "DEPRECATED: SetMaxBirds() in birdspawner.lua, use birdattractor.spawnmodifier instead"
     _maxbirds = max
     ToggleUpdate(true)
+end
+
+function self:ToggleUpdate()
+	ToggleUpdate(true)
 end
 
 function self:SpawnModeNever()
@@ -197,16 +246,21 @@ function self:SpawnModeLight()
     self:SetMaxBirds(2)
 end
 
+local BIRDBLOCKER_TAGS = {"birdblocker"}
 function self:GetSpawnPoint(pt)
     --We have to use custom test function because birds can't land on creep
     local function TestSpawnPoint(offset)
-        local spawnpoint = pt + offset
-        return _map:IsPassableAtPoint(spawnpoint:Get()) and not _groundcreep:OnCreep(spawnpoint:Get())
+        local spawnpoint_x, spawnpoint_y, spawnpoint_z = (pt + offset):Get()
+        local allow_water = true
+        return _map:IsPassableAtPoint(spawnpoint_x, spawnpoint_y, spawnpoint_z, allow_water) and
+               _map:GetTileAtPoint(spawnpoint_x, spawnpoint_y, spawnpoint_z) ~= GROUND.OCEAN_COASTAL_SHORE and
+               not _groundcreep:OnCreep(spawnpoint_x, spawnpoint_y, spawnpoint_z) and
+               #(TheSim:FindEntities(spawnpoint_x, 0, spawnpoint_z, 4, BIRDBLOCKER_TAGS)) == 0
     end
 
     local theta = math.random() * 2 * PI
-    local radius = 4 + math.random() * 6
-    local resultoffset = FindValidPositionByFan(theta, radius, 10, TestSpawnPoint)
+    local radius = 6 + math.random() * 6
+    local resultoffset = FindValidPositionByFan(theta, radius, 12, TestSpawnPoint)
 
     if resultoffset ~= nil then
         return pt + resultoffset
@@ -232,10 +286,11 @@ function self:SpawnBird(spawnpoint, ignorebait)
         local bait = TheSim:FindEntities(spawnpoint.x, 0, spawnpoint.z, 15)
         for k, v in pairs(bait) do
             local x, y, z = v.Transform:GetWorldPosition()
-            if bird.components.eater:CanEat(v) and
+            if bird.components.eater:CanEat(v) and not v:IsInLimbo() and
                 v.components.bait and
                 not (v.components.inventoryitem and v.components.inventoryitem:IsHeld()) and
-                not IsDangerNearby(x, y, z) then
+                not IsDangerNearby(x, y, z) and
+                (bird.components.floater ~= nil or _map:IsPassableAtPoint(x, y, z)) then
                 spawnpoint.x, spawnpoint.z = x, z
                 bird.bufferedaction = BufferedAction(bird, v, ACTIONS.EAT)
                 break
@@ -286,7 +341,7 @@ end
 --------------------------------------------------------------------------
 
 function self:OnSave()
-    return 
+    return
     {
         maxbirds = _maxbirds,
         minspawndelay = _minspawndelay,

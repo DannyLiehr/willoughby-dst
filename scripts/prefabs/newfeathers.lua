@@ -20,6 +20,8 @@ local function makefeather(name)
 
         inst:AddTag("cattoy")
 
+        MakeInventoryFloatable(inst, "small", 0.05, 0.95)
+
         inst.entity:SetPristine()
 
         if not TheWorld.ismastersim then
@@ -41,8 +43,7 @@ local function makefeather(name)
 
         inst:AddComponent("inventoryitem")
         inst.components.inventoryitem.nobounce = true
-        inst.components.inventoryitem.atlasname = "images/inventoryimages/feather_"..name..".xml"
-		
+
         inst:AddComponent("tradable")
 
         return inst
