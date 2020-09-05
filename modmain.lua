@@ -8,15 +8,15 @@ PrefabFiles = {
 	"poutine",
 	"banato",
 	"bakedbanato",
-	"icelettuce", 
+	"icelettuce",
 	"banatobread",
 	"raspberrybush",
 	"dug_raspberrybush",
 	"raspberries",
 	"raspberrymuffin",
 	"cheapberrybush",
-	"doc",
-	"doc_none",
+	-- "doc",
+	-- "doc_none",
 	"missing_post",
 	"fmbirds",
 	"newfeathers",
@@ -65,7 +65,7 @@ AddMinimapAtlas("images/map_icons/doc.xml")
 AddMinimapAtlas("images/minimap/bumpkinfarm.xml")
 
 AddModCharacter("will", "MALE")
-AddModCharacter("doc", "MALE")
+-- AddModCharacter("doc", "MALE")
 -- AddModCharacter("windell", "MALE")
 -- Windell will be arriving soon...
 

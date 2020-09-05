@@ -1,6 +1,6 @@
 name = "Farmer's Misfortune (New)"
 description = "Willoughby's adventures through the island!"
-author = "Not Wilson, Half Rose, TheLetterW and Rhodey."
+author = "Not Wilson, TheLetterW and Rhodey."
 version = "1.8.0"
 forumthread = ""
 api_version = 10
@@ -20,6 +20,6 @@ server_filter_tags = {
 	menu_assets = {
     characters = {
         will = { gender = "MALE", nopuppet = false },
-		doc = { gender = "MALE", nopuppet = false }
+		-- doc = { gender = "MALE", nopuppet = false }
     },
 }

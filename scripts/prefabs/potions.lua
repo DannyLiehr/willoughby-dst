@@ -6,7 +6,7 @@ local assets =
 local effecttime = 5
 local effectcounter = 0
 
-local prefabs = 
+local prefabs =
 {
 	"spoiled_food",
 }
@@ -14,13 +14,13 @@ local function normspeed(eater)
 	  eater.components.talker:Say(GetString(eater, "ANNOUNCE_SPEEDDOWN"))
 	  eater:RemoveTag("spedup")
   	  eater.components.locomotor.runspeed = eater.components.locomotor.runspeed - 5
-  
+
 end
 local function oneatenyellow(inst, eater)
 	if not eater:HasTag("player") then
 		return
 	end
-	  
+
 	if eater:HasTag("spedup") then
 	  eater.components.talker:Say(GetString(eater, "ANNOUNCE_TOPSPEED"))
 	else
@@ -29,7 +29,7 @@ local function oneatenyellow(inst, eater)
 	  eater.components.talker:Say(GetString(eater, "ANNOUNCE_SPEED"))
 	  eater:AddTag("spedup")
 	end
-	
+
 end
 
 local function oneatenmystery(inst, eater)
@@ -37,18 +37,19 @@ local function oneatenmystery(inst, eater)
 		return
 	end
 	--Let's roll a dice.
-	local randomizer = math.floor(math.random()*10)
-	if randomizer = 1 then
+	local randomizer = math.floor(math.random()*3)
+	if (randomizer == 1) then
 		--Just a healing potion. (:
 		inst.components.edible.hungervalue = 10
-	elseif randomizer = 2 then
+	elseif (randomizer == 2) then
 		--Just a sanity potion. :)
 		inst.components.edible.sanityvalue = 20
-	elseif randomizer = 3 then
-		--Oh.
-		
+	elseif (randomizer == 3) then
+        -- Health potion why not
+		inst.components.edible.healthvalue = 7
+
 	end
-	
+
 end
 local function oneatenorange(inst,eater)
 local pt = eater:GetPosition()
@@ -62,7 +63,7 @@ eater:StartThread(function()
  end
  end)
 end
- 
+
 local function common_fn(bank, build)
     local inst = CreateEntity()
 
@@ -77,7 +78,7 @@ local function common_fn(bank, build)
     --inst.AnimState:PlayAnimation("idle")
 
 	inst:AddComponent("edible")
-	
+
     inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -114,7 +115,7 @@ local function green()
 	inst.components.edible.woodiness = 100
 	--inst.components.edible.temperaturedelta = TUNING.HOT_FOOD_BONUS_TEMP / 2
 	--inst.components.edible.temperatureduration = TUNING.FOOD_TEMP_LONG * 2
-    
+
     return inst
 end
 
@@ -133,7 +134,7 @@ local function yellow()
 	--inst.components.edible.temperaturedelta = TUNING.HOT_FOOD_BONUS_TEMP / 2
 	--inst.components.edible.temperatureduration = TUNING.FOOD_TEMP_LONG * 2
 	inst.components.edible:SetOnEatenFn(oneatenyellow)
-    
+
     return inst
 end
 
@@ -151,7 +152,7 @@ local function health()
 	inst.components.edible.sanityvalue = 0
 	--inst.components.edible.temperaturedelta = TUNING.HOT_FOOD_BONUS_TEMP / 2
 	--inst.components.edible.temperatureduration = TUNING.FOOD_TEMP_LONG * 2
-    
+
     return inst
 end
 
@@ -170,7 +171,7 @@ local function orange()
 	inst.components.edible:SetOnEatenFn(oneatenorange)
 	--inst.components.edible.temperaturedelta = TUNING.HOT_FOOD_BONUS_TEMP / 2
 	--inst.components.edible.temperatureduration = TUNING.FOOD_TEMP_LONG * 2
-    
+
     return inst
 end
 
@@ -205,7 +206,7 @@ local function fire()
 	inst.components.edible.sanityvalue = 0
 	inst.components.edible.temperaturedelta = TUNING.HOT_FOOD_BONUS_TEMP * 2
 	inst.components.edible.temperatureduration = TUNING.FOOD_TEMP_LONG * 2
-    
+
     return inst
 end
 
@@ -215,14 +216,14 @@ local function mystery()
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	
+
+
 	inst.AnimState:PlayAnimation("mystery",true)
 	inst.components.inventoryitem.imagename = "yellow_potion"
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/yellow_potion.xml"
 	inst.components.edible.healthvalue = 0
 	inst.components.edible:SetOnEatenFn(oneatenmystery)
-    
+
     return inst
 end
 

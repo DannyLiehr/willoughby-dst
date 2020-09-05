@@ -8,7 +8,8 @@ This assumes the bird already has a build, inventory icon, sounds and a feather_
 
 ]]--
 
-local brain = require "brains/birdbrain"
+-- local brain = require "brains/birdbrain"
+local brain = require "brains/loonbrain"
 
 local function ShouldSleep(inst)
     return DefaultSleepTest(inst) and not inst.sg:HasStateTag("flying")
@@ -19,7 +20,7 @@ end
 local function OnAttacked(inst, data)
     local x,y,z = inst.Transform:GetWorldPosition()
     local ents = TheSim:FindEntities(x,y,z, 30, {'bird'})
-    
+
     local num_friends = 0
     local maxnum = 5
     for k,v in pairs(ents) do
@@ -27,12 +28,12 @@ local function OnAttacked(inst, data)
             v:PushEvent("gohome")
             num_friends = num_friends + 1
         end
-        
+
         if num_friends > maxnum then
-            
+
 			return
         end
-        
+
     end
 end
 
@@ -58,7 +59,7 @@ local function makebird(name, soundname)
 	    Asset("ANIM", "anim/"..name.."_build.zip"),
 	    Asset("SOUND", "sound/birds.fsb"),
     }
-    
+
     local prefabs =
     {
         "seeds",
@@ -100,7 +101,7 @@ local function makebird(name, soundname)
 		inst.color = .5 + math.random() * .5
         inst.AnimState:SetMultColour(inst.color, inst.color, inst.color, 1)
 
-        inst.Transform:SetTwoFaced()   
+        inst.Transform:SetTwoFaced()
         inst.AnimState:SetBank("crow")
         inst.AnimState:SetBuild(name.."_build")
         inst.AnimState:PlayAnimation("idle")
@@ -121,7 +122,7 @@ local function makebird(name, soundname)
             flyin = "dontstarve/birds/flyin",
         }
         inst.trappedbuild = name.."_build"
-        
+
         inst:AddComponent("locomotor")
         inst.components.locomotor:EnableGroundSpeedMultiplier(false)
 	    inst.components.locomotor:SetTriggersCreep(false)
@@ -131,20 +132,20 @@ local function makebird(name, soundname)
         inst.components.lootdropper:AddRandomLoot("feather_"..name, 1)
         inst.components.lootdropper:AddRandomLoot("smallmeat", 1)
         inst.components.lootdropper.numrandomloot = 1
-        
+
         inst:AddComponent("occupier")
-        
+
         inst:AddComponent("eater")
 		inst.components.eater:SetDiet( { FOODGROUP.OMNI }, {FOODGROUP.OMNI } )
-        
+
         inst:AddComponent("sleeper")
         inst.components.sleeper:SetSleepTest(ShouldSleep)
 
         inst:AddComponent("inventoryitem")
         inst.components.inventoryitem.nobounce = true
         inst.components.inventoryitem.canbepickedup = false
-        
-        inst.components.inventoryitem.imagename = name    
+
+        inst.components.inventoryitem.imagename = name
         inst.components.inventoryitem.atlasname = "images/inventoryimages/"..name..".xml"
 
         inst:AddComponent("cookable")
@@ -157,12 +158,12 @@ local function makebird(name, soundname)
         inst:AddComponent("health")
         inst.components.health:SetMaxHealth(TUNING.BIRD_HEALTH)
         inst.components.health.murdersound = "dontstarve/wilson/hit_animal"
-        
+
         inst:AddComponent("inspectable")
-       
-        
+
+
         inst:SetBrain(brain)
-        
+
         MakeSmallBurnableCharacter(inst, "crow_body")
         MakeTinyFreezableCharacter(inst, "crow_body")
 
@@ -174,11 +175,11 @@ local function makebird(name, soundname)
         inst.components.periodicspawner:SetMinimumSpacing(8)
 		inst.components.periodicspawner:SetSpawnTestFn( SeedSpawnTest )
 
-        
-        
+
+
         inst:ListenForEvent("ontrapped", OnTrapped)
-        
-        
+
+
         inst:ListenForEvent("attacked", OnAttacked)
 
 local birdspawner = TheWorld.components.birdspawner
@@ -192,10 +193,8 @@ local birdspawner = TheWorld.components.birdspawner
         MakeFeedablePet(inst, TUNING.BIRD_PERISH_TIME, nil, OnDropped)
         return inst
     end
-    
+
     return Prefab("forest/animals/"..name, fn, assets, prefabs)
 end
 
 return makebird("loon", "loon")
-
-       
