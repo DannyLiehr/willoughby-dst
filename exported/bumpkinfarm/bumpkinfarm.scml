@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="b5">
+    <folder id="0" name="cutstone">
+        <file id="0" name="cutstone/stone0.png" width="306" height="218" pivot_x="0.486971" pivot_y="0.573059"/>
+    </folder>
+    <folder id="1" name="dirt">
+        <file id="0" name="dirt/dirt0.png" width="244" height="136" pivot_x="0.485225" pivot_y="0.624899"/>
+    </folder>
+    <folder id="2" name="grass">
+        <file id="0" name="grass/grass0.png" width="257" height="141" pivot_x="0.487001" pivot_y="0.572296"/>
+        <file id="1" name="grass/shadow0.png" width="180" height="114" pivot_x="0.480938" pivot_y="0.405772"/>
+    </folder>
+    <folder id="3" name="rocks">
+        <file id="0" name="rocks/rocks0.png" width="228" height="174" pivot_x="0.47717" pivot_y="0.549357"/>
+    </folder>
+    <folder id="4" name="tarp">
+        <file id="0" name="tarp/tarp0.png" width="320" height="254" pivot_x="0.497085" pivot_y="0.259592"/>
+    </folder>
+    <entity id="0" name="bumpkinfarm">
+        <animation id="0" name="idle_winter" length="1000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="stone0" folder="0" file="0" abs_x="-3.4314" abs_y="3.040595" abs_pivot_x="0.486971" abs_pivot_y="0.573059" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="dirt0" folder="1" file="0" abs_x="-13.358606" abs_y="16.629501" abs_pivot_x="0.485225" abs_pivot_y="0.624899" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" name="grass0" folder="2" file="0" abs_x="-17.098112" abs_y="8.699633" abs_pivot_x="0.487001" abs_pivot_y="0.572296" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" name="rocks0" folder="3" file="0" abs_x="-22.969331" abs_y="16.234043" abs_pivot_x="0.47717" abs_pivot_y="0.549357" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="3" key="0" z_index="3"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="stone0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-3.4314" y="3.040595" angle="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="dirt0">
+                <key id="0" spin="0">
+                    <object folder="1" file="0" x="-13.358606" y="16.629501" angle="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="grass0">
+                <key id="0" spin="0">
+                    <object folder="2" file="0" x="-17.098112" y="8.699633" angle="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="rocks0">
+                <key id="0" spin="0">
+                    <object folder="3" file="0" x="-22.969331" y="16.234043" angle="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="idle_summer" length="1000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="stone0" folder="0" file="0" abs_x="-6.993481" abs_y="10.468909" abs_pivot_x="0.486971" abs_pivot_y="0.573059" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="dirt0" folder="1" file="0" abs_x="-16.920687" abs_y="24.057816" abs_pivot_x="0.485225" abs_pivot_y="0.624899" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" name="shadow0" folder="2" file="1" abs_x="-25.714779" abs_y="9.218848" abs_pivot_x="0.480938" abs_pivot_y="0.405772" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="3" key="0" z_index="2"/>
+                    <object_ref id="3" name="tarp0" folder="4" file="0" abs_x="-9.97395" abs_y="-6.156996" abs_pivot_x="0.497085" abs_pivot_y="0.259592" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="2" key="0" z_index="3"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="stone0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-6.993481" y="10.468909" angle="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="dirt0">
+                <key id="0" spin="0">
+                    <object folder="1" file="0" x="-16.920687" y="24.057816" angle="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="tarp0">
+                <key id="0" spin="0">
+                    <object folder="4" file="0" x="-9.97395" y="-6.156996" angle="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="shadow0">
+                <key id="0" spin="0">
+                    <object folder="2" file="1" x="-25.714779" y="9.218848" angle="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

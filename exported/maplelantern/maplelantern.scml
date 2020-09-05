@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="b5">
+    <folder id="0" name="pole">
+        <file id="0" name="pole/pole.png" width="104" height="307" pivot_x="0" pivot_y="1"/>
+        <file id="1" name="pole/pole-1.png" width="38" height="230" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <folder id="1" name="bulb">
+        <file id="0" name="bulb/lantern.png" width="52" height="73" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <entity id="0" name="maplelantern">
+        <animation id="0" name="burnt" length="1000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="pole-1" folder="0" file="1" abs_x="1.309866" abs_y="4.032535" abs_pivot_x="0.38061" abs_pivot_y="0.038893" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="pole-1">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="1.309866" y="4.032535" pivot_x="0.38061" pivot_y="0.038893" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="anim" length="1000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="pole" folder="0" file="0" abs_x="-6.154552" abs_y="0.494837" abs_pivot_x="0.254552" abs_pivot_y="0.005163" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="lantern" folder="1" file="0" abs_x="96.805736" abs_y="487.082193" abs_pivot_x="0.478276" abs_pivot_y="0.91038" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="1" key="0" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="pole">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="lantern">
+                <key id="0" spin="0">
+                    <object folder="1" file="0" x="96.805736" y="487.082193" pivot_x="0.478276" pivot_y="0.91038" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="idle" length="2000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="pole" folder="0" file="0" abs_x="-6.154552" abs_y="0.494837" abs_pivot_x="0.254552" abs_pivot_y="0.005163" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="lantern" folder="1" file="0" abs_x="96.805736" abs_y="487.082193" abs_pivot_x="0.478276" abs_pivot_y="0.91038" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="500">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+                <key id="2" time="1000">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="2" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="pole">
+                <key id="0">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="1" time="1000" spin="-1">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="1" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="lantern">
+                <key id="0">
+                    <object folder="1" file="0" x="96.805736" y="487.082193" pivot_x="0.478276" pivot_y="0.91038" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="1" time="500" spin="-1">
+                    <object folder="1" file="0" x="92.551835" y="487.943591" pivot_x="0.478276" pivot_y="0.91038" angle="2.5" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="2" time="1000">
+                    <object folder="1" file="0" x="88.297934" y="488.804988" pivot_x="0.478276" pivot_y="0.91038" angle="356" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="3" name="level1" length="2000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="pole" folder="0" file="0" abs_x="-6.154552" abs_y="0.494837" abs_pivot_x="0.254552" abs_pivot_y="0.005163" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="lantern" folder="1" file="0" abs_x="96.805736" abs_y="487.082193" abs_pivot_x="0.478276" abs_pivot_y="0.91038" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="500">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+                <key id="2" time="1000">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="2" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="pole">
+                <key id="0">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="1" time="1000" spin="-1">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="1" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="lantern">
+                <key id="0">
+                    <object folder="1" file="0" x="96.805736" y="487.082193" pivot_x="0.478276" pivot_y="0.91038" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="1" time="500" spin="-1">
+                    <object folder="1" file="0" x="92.551835" y="487.943591" pivot_x="0.478276" pivot_y="0.91038" angle="2.5" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="2" time="1000">
+                    <object folder="1" file="0" x="88.297934" y="488.804988" pivot_x="0.478276" pivot_y="0.91038" angle="356" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="4" name="level2" length="2000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="pole" folder="0" file="0" abs_x="-6.154552" abs_y="0.494837" abs_pivot_x="0.254552" abs_pivot_y="0.005163" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="lantern" folder="1" file="0" abs_x="96.805736" abs_y="487.082193" abs_pivot_x="0.478276" abs_pivot_y="0.91038" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="500">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+                <key id="2" time="1000">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="2" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="pole">
+                <key id="0">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="1" time="1000" spin="-1">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="1" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="lantern">
+                <key id="0">
+                    <object folder="1" file="0" x="96.805736" y="487.082193" pivot_x="0.478276" pivot_y="0.91038" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="1" time="500" spin="-1">
+                    <object folder="1" file="0" x="92.551835" y="487.943591" pivot_x="0.478276" pivot_y="0.91038" angle="2.5" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="2" time="1000">
+                    <object folder="1" file="0" x="88.297934" y="488.804988" pivot_x="0.478276" pivot_y="0.91038" angle="356" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="5" name="level3" length="2000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="pole" folder="0" file="0" abs_x="-6.154552" abs_y="0.494837" abs_pivot_x="0.254552" abs_pivot_y="0.005163" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="lantern" folder="1" file="0" abs_x="96.805736" abs_y="487.082193" abs_pivot_x="0.478276" abs_pivot_y="0.91038" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="500">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+                <key id="2" time="1000">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="2" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="pole">
+                <key id="0">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="1" time="1000" spin="-1">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="1" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="lantern">
+                <key id="0">
+                    <object folder="1" file="0" x="96.805736" y="487.082193" pivot_x="0.478276" pivot_y="0.91038" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="1" time="500" spin="-1">
+                    <object folder="1" file="0" x="92.551835" y="487.943591" pivot_x="0.478276" pivot_y="0.91038" angle="2.5" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="2" time="1000">
+                    <object folder="1" file="0" x="88.297934" y="488.804988" pivot_x="0.478276" pivot_y="0.91038" angle="356" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="6" name="level4" length="2000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="pole" folder="0" file="0" abs_x="-6.154552" abs_y="0.494837" abs_pivot_x="0.254552" abs_pivot_y="0.005163" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="lantern" folder="1" file="0" abs_x="96.805736" abs_y="487.082193" abs_pivot_x="0.478276" abs_pivot_y="0.91038" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="500">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+                <key id="2" time="1000">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="2" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="pole">
+                <key id="0">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="1" time="1000" spin="-1">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="1" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="lantern">
+                <key id="0">
+                    <object folder="1" file="0" x="96.805736" y="487.082193" pivot_x="0.478276" pivot_y="0.91038" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="1" time="500" spin="-1">
+                    <object folder="1" file="0" x="92.551835" y="487.943591" pivot_x="0.478276" pivot_y="0.91038" angle="2.5" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="2" time="1000">
+                    <object folder="1" file="0" x="88.297934" y="488.804988" pivot_x="0.478276" pivot_y="0.91038" angle="356" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="7" name="built" length="1000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="pole" folder="0" file="0" abs_x="-6.154552" abs_y="0.494837" abs_pivot_x="0.254552" abs_pivot_y="0.005163" abs_angle="0" abs_scale_x="2" abs_scale_y="0.2" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="lantern" folder="1" file="0" abs_x="97.805736" abs_y="52.082193" abs_pivot_x="0.478276" abs_pivot_y="0.91038" abs_angle="178.828782" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="99">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+                <key id="2" time="100">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+                <key id="3" time="165">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="2" z_index="1"/>
+                </key>
+                <key id="4" time="303">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="3" z_index="1"/>
+                </key>
+                <key id="5" time="318">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="3" z_index="1"/>
+                </key>
+                <key id="6" time="331">
+                    <object_ref id="0" timeline="0" key="4" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="3" z_index="1"/>
+                </key>
+                <key id="7" time="342">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="3" z_index="1"/>
+                </key>
+                <key id="8" time="392">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="4" z_index="1"/>
+                </key>
+                <key id="9" time="490">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="5" z_index="1"/>
+                </key>
+                <key id="10" time="588">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="6" z_index="1"/>
+                </key>
+                <key id="11" time="684">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="7" z_index="1"/>
+                </key>
+                <key id="12" time="784">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="8" z_index="1"/>
+                </key>
+                <key id="13" time="882">
+                    <object_ref id="0" timeline="0" key="5" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="9" z_index="1"/>
+                </key>
+                <key id="14" time="1000">
+                    <object_ref id="0" timeline="0" key="6" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="10" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="pole">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="0" scale_x="2" scale_y="0.2"/>
+                </key>
+                <key id="1" time="100" spin="0">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="0" scale_x="2" scale_y="2.5"/>
+                </key>
+                <key id="2" time="303" spin="0">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="3" time="318" spin="0">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="0" scale_x="2" scale_y="2.05"/>
+                </key>
+                <key id="4" time="331" spin="0">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="0" scale_x="2" scale_y="1.95"/>
+                </key>
+                <key id="5" time="342" spin="0">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="6" time="1000" spin="0">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="lantern">
+                <key id="0" spin="-1">
+                    <object folder="1" file="0" x="97.805736" y="52.082193" pivot_x="0.478276" pivot_y="0.91038" angle="178.828782" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="1" time="99" spin="-1">
+                    <object folder="1" file="0" x="95.805736" y="604.082193" pivot_x="0.478276" pivot_y="0.91038" angle="13.803346" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="2" time="165">
+                    <object folder="1" file="0" x="96.922828" y="567.041128" pivot_x="0.478276" pivot_y="0.91038" angle="297.76074" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="3" time="303" spin="-1">
+                    <object folder="1" file="0" x="99.258566" y="489.591627" pivot_x="0.478276" pivot_y="0.91038" angle="83.760185" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="4" time="392">
+                    <object folder="1" file="0" x="99.073054" y="489.271197" pivot_x="0.478276" pivot_y="0.91038" angle="316.390782" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="5" time="490" spin="-1">
+                    <object folder="1" file="0" x="98.868782" y="488.918364" pivot_x="0.478276" pivot_y="0.91038" angle="35.019168" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="6" time="588">
+                    <object folder="1" file="0" x="98.664511" y="488.565531" pivot_x="0.478276" pivot_y="0.91038" angle="342.377608" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="7" time="684" spin="-1">
+                    <object folder="1" file="0" x="98.464408" y="488.219899" pivot_x="0.478276" pivot_y="0.91038" angle="15.058857" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="8" time="784">
+                    <object folder="1" file="0" x="98.255967" y="487.859866" pivot_x="0.478276" pivot_y="0.91038" angle="353.738111" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="9" time="882" spin="-1">
+                    <object folder="1" file="0" x="98.051696" y="487.507033" pivot_x="0.478276" pivot_y="0.91038" angle="0.353286" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="10" time="1000">
+                    <object folder="1" file="0" x="97.805736" y="487.082193" pivot_x="0.478276" pivot_y="0.91038" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="8" name="hit" length="500">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="pole" folder="0" file="0" abs_x="-6.154552" abs_y="0.494837" abs_pivot_x="0.254552" abs_pivot_y="0.005163" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="lantern" folder="1" file="0" abs_x="96.805736" abs_y="487.082193" abs_pivot_x="0.478276" abs_pivot_y="0.91038" abs_angle="0" abs_scale_x="2" abs_scale_y="2" abs_a="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="40">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+                <key id="2" time="259">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="2" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="pole">
+                <key id="0">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="1" time="40" spin="-1">
+                    <object folder="0" file="0" x="-6.154552" y="0.494837" pivot_x="0.254552" pivot_y="0.005163" angle="5.639216" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="lantern">
+                <key id="0">
+                    <object folder="1" file="0" x="96.805736" y="487.082193" pivot_x="0.478276" pivot_y="0.91038" angle="0" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="1" time="40" spin="-1">
+                    <object folder="1" file="0" x="52.4934" y="494.844589" pivot_x="0.478276" pivot_y="0.91038" angle="22.582369" scale_x="2" scale_y="2"/>
+                </key>
+                <key id="2" time="259">
+                    <object folder="1" file="0" x="73.589925" y="491.149014" pivot_x="0.478276" pivot_y="0.91038" angle="333.765131" scale_x="2" scale_y="2"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

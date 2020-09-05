@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="b5">
+    <folder id="0" name="pole">
+        <file id="0" name="pole/pole.png" width="50" height="500" pivot_x="0.558824" pivot_y="0.0149701"/>
+    </folder>
+    <folder id="1" name="web">
+        <file id="0" name="web/web.png" width="255" height="516" pivot_x="0.435547" pivot_y="0.995164"/>
+    </folder>
+    <entity id="0" name="dream_catcher">
+        <animation id="0" name="anim" length="2">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="pole" folder="0" file="0" abs_x="4.941176" abs_y="0.48503" abs_pivot_x="0.558824" abs_pivot_y="0.01497" abs_angle="360" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="web" folder="1" file="0" abs_x="-7.935547" abs_y="450.504836" abs_pivot_x="0.435547" abs_pivot_y="0.995164" abs_angle="360" abs_scale_x="0.65" abs_scale_y="0.65" abs_a="1" timeline="1" key="0" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="pole">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="4.941176" y="0.48503"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="web">
+                <key id="0" spin="0">
+                    <object folder="1" file="0" x="-7.935547" y="450.504836" scale_x="0.65" scale_y="0.65"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="idle" length="2000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="pole" folder="0" file="0" abs_x="4.941176" abs_y="0.48503" abs_pivot_x="0.558824" abs_pivot_y="0.01497" abs_angle="360" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="web" folder="1" file="0" abs_x="-7.935547" abs_y="450.504836" abs_pivot_x="0.435547" abs_pivot_y="0.995164" abs_angle="360" abs_scale_x="0.65" abs_scale_y="0.65" abs_a="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="500">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+                <key id="2" time="1500">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="2" z_index="1"/>
+                </key>
+                <key id="3" time="2000">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="3" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="pole">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="4.941176" y="0.48503"/>
+                </key>
+                <key id="1" time="2000" spin="0">
+                    <object folder="0" file="0" x="4.941176" y="0.48503"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="web">
+                <key id="0" spin="-1">
+                    <object folder="1" file="0" x="-7.935547" y="450.504836" scale_x="0.65" scale_y="0.65"/>
+                </key>
+                <key id="1" time="500">
+                    <object folder="1" file="0" x="-7.935547" y="450.504836" angle="359.5" scale_x="0.65" scale_y="0.65"/>
+                </key>
+                <key id="2" time="1500" spin="-1">
+                    <object folder="1" file="0" x="-7.935547" y="450.504836" angle="0.5" scale_x="0.65" scale_y="0.65"/>
+                </key>
+                <key id="3" time="2000" spin="0">
+                    <object folder="1" file="0" x="-7.935547" y="450.504836" scale_x="0.65" scale_y="0.65"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

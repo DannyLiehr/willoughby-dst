@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="b5">
+    <folder id="0" name="poutine">
+        <file id="0" name="poutine/poutine-0.png" width="192" height="192" pivot_x="0.540672" pivot_y="0.314758"/>
+    </folder>
+    <entity id="0" name="poutine">
+        <animation id="0" name="idle" length="1000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="poutine" folder="0" file="0" abs_x="0.668442" abs_y="13.616233" abs_pivot_x="0.502699" abs_pivot_y="0.306586" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="poutine">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="0.668442" y="13.616233" pivot_x="0.502699" pivot_y="0.306586" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

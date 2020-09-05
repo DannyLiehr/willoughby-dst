@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="b5">
+    <folder id="0" name="coin">
+        <file id="0" name="coin/coin.png" width="160" height="56" pivot_x="0.486842" pivot_y="0.126866"/>
+    </folder>
+    <folder id="1" name="sparkle">
+        <file id="0" name="sparkle/sparkle-0.png" width="216" height="188" pivot_x="0.529599" pivot_y="0.501323"/>
+    </folder>
+    <entity id="0" name="loonie">
+        <animation id="0" name="idle" length="1000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="coin" folder="0" file="0" abs_x="-4.986842" abs_y="-4.626866" abs_pivot_x="0.486842" abs_pivot_y="0.126866" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="coin">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-4.986842" y="-4.626866" angle="0"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="sparkle" length="600">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="coin" folder="0" file="0" abs_x="-4.986842" abs_y="-4.626866" abs_pivot_x="0.486842" abs_pivot_y="0.126866" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="sparkle-0" folder="1" file="0" abs_x="49.519231" abs_y="11.538462" abs_pivot_x="0.529599" abs_pivot_y="0.501323" abs_angle="360" abs_scale_x="0.05" abs_scale_y="0.05" abs_a="1" timeline="1" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="120">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                </key>
+                <key id="2" time="240">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="2" z_index="1"/>
+                </key>
+                <key id="3" time="296">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="3" z_index="1"/>
+                </key>
+                <key id="4" time="375">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="4" z_index="1"/>
+                </key>
+                <key id="5" time="502">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="5" z_index="1"/>
+                </key>
+                <key id="6" time="583">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="6" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="coin">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="-4.986842" y="-4.626866" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="sparkle-0">
+                <key id="0" spin="-1">
+                    <object folder="1" file="0" x="49.519231" y="11.538462" scale_x="0.05" scale_y="0.05"/>
+                </key>
+                <key id="1" time="120" spin="-1">
+                    <object folder="1" file="0" x="49.519231" y="11.538462" angle="317.602562" scale_x="0.232432" scale_y="0.232432"/>
+                </key>
+                <key id="2" time="240" spin="-1">
+                    <object folder="1" file="0" x="49.519231" y="11.538462" angle="178.298645" scale_x="0.414865" scale_y="0.414865"/>
+                </key>
+                <key id="3" time="296" spin="-1">
+                    <object folder="1" file="0" x="49.519231" y="11.538462" angle="89.22578" scale_x="0.5" scale_y="0.5"/>
+                </key>
+                <key id="4" time="375" spin="-1">
+                    <object folder="1" file="0" x="49.519231" y="11.538462" angle="18.434949" scale_x="0.383059" scale_y="0.383059"/>
+                </key>
+                <key id="5" time="502" spin="-1">
+                    <object folder="1" file="0" x="49.519231" y="11.538462" angle="289.179008" scale_x="0.195066" scale_y="0.195066"/>
+                </key>
+                <key id="6" time="583" spin="-1">
+                    <object folder="1" file="0" x="49.519231" y="11.538462" angle="117.439728" scale_x="0.075164" scale_y="0.075164"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

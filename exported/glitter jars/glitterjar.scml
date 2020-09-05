@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="b5">
+    <folder id="0" name="jar">
+        <file id="0" name="jar/jar-0.png" width="192" height="192" pivot_x="0.474093" pivot_y="0.11658"/>
+        <file id="1" name="jar/jar-1.png" width="192" height="192" pivot_x="0.474093" pivot_y="0.11658"/>
+    </folder>
+    <folder id="1" name="sparkle">
+        <file id="0" name="sparkle/sparkle-1.png" width="50" height="50" pivot_x="0.515319" pivot_y="0.484681"/>
+        <file id="1" name="sparkle/sparkle-2.png" width="50" height="50" pivot_x="0.5" pivot_y="0.480392"/>
+    </folder>
+    <entity id="0" name="glitterjar">
+        <animation id="0" name="anim" length="134">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="jar-0" folder="0" file="0" abs_x="2.025907" abs_y="3.38342" abs_pivot_x="0.474093" abs_pivot_y="0.11658" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="sparkle-1" folder="1" file="0" abs_x="280" abs_y="150" abs_pivot_x="0.515319" abs_pivot_y="0.484681" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" name="sparkle-2" folder="1" file="1" abs_x="282" abs_y="211.019608" abs_pivot_x="0.5" abs_pivot_y="0.480392" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" name="jar-1" folder="0" file="1" abs_x="437.025856" abs_y="11.38336" abs_pivot_x="0.474093" abs_pivot_y="0.11658" abs_angle="360" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="3" key="0" z_index="3"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="jar-0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="2.025907" y="3.38342" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="sparkle-1">
+                <key id="0" spin="0">
+                    <object folder="1" file="0" x="280" y="150" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="sparkle-2">
+                <key id="0" spin="0">
+                    <object folder="1" file="1" x="282" y="211.019608" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="jar-1">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="437.025856" y="11.38336"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="idle_doc" length="2000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="jar-0" folder="0" file="0" abs_x="2.025907" abs_y="3.38342" abs_pivot_x="0.474093" abs_pivot_y="0.11658" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="sparkle-1" folder="1" file="0" abs_x="28.4375" abs_y="82.03125" abs_pivot_x="0.515319" abs_pivot_y="0.484681" abs_angle="0" abs_scale_x="0.324755" abs_scale_y="0.324755" abs_a="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" name="sparkle-2" folder="1" file="1" abs_x="-24.25" abs_y="39.925858" abs_pivot_x="0.5" abs_pivot_y="0.480392" abs_angle="0" abs_scale_x="0.430147" abs_scale_y="0.430147" abs_a="1" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" name="sparkle-2_000" folder="1" file="1" abs_x="32.8125" abs_y="12.5" abs_pivot_x="0.5" abs_pivot_y="0.480392" abs_angle="0" abs_scale_x="0.551471" abs_scale_y="0.560556" abs_a="1" timeline="3" key="0" z_index="3"/>
+                    <object_ref id="4" name="sparkle-1_000" folder="1" file="0" abs_x="-26.577819" abs_y="94.546569" abs_pivot_x="0.515319" abs_pivot_y="0.484681" abs_angle="0" abs_scale_x="0.284893" abs_scale_y="0.284893" abs_a="1" timeline="4" key="0" z_index="4"/>
+                    <object_ref id="5" name="sparkle-1_001" folder="1" file="0" abs_x="5.333333" abs_y="56" abs_pivot_x="0.515319" abs_pivot_y="0.484681" abs_angle="0" abs_scale_x="0.512114" abs_scale_y="0.512114" abs_a="1" timeline="5" key="0" z_index="5"/>
+                </key>
+                <key id="1" time="273">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="1" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="0" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="0" z_index="5"/>
+                </key>
+                <key id="2" time="640">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="1" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="0" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="1" z_index="5"/>
+                </key>
+                <key id="3" time="746">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="1" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="1" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="1" z_index="5"/>
+                </key>
+                <key id="4" time="782">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="2" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="1" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="1" z_index="5"/>
+                </key>
+                <key id="5" time="831">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="2" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="1" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="1" z_index="5"/>
+                </key>
+                <key id="6" time="920">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="3" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="1" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="1" z_index="5"/>
+                </key>
+                <key id="7" time="1000">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="1" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="3" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="1" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="1" z_index="5"/>
+                </key>
+                <key id="8" time="1270">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="1" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="3" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="1" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="2" z_index="5"/>
+                </key>
+                <key id="9" time="1309">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="1" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="4" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="1" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="2" z_index="5"/>
+                </key>
+                <key id="10" time="1466">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="1" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="4" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="2" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="2" z_index="5"/>
+                </key>
+                <key id="11" time="1470">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="2" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="4" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="2" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="2" z_index="5"/>
+                </key>
+                <key id="12" time="1608">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="2" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="4" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="2" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="3" z_index="5"/>
+                </key>
+                <key id="13" time="1658">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="2" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="5" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="2" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="3" z_index="5"/>
+                </key>
+                <key id="14" time="1882">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="2" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="5" z_index="3"/>
+                    <object_ref id="4" timeline="4" key="3" z_index="4"/>
+                    <object_ref id="5" timeline="5" key="3" z_index="5"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="jar-0">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="2.025907" y="3.38342" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="sparkle-1">
+                <key id="0" spin="0">
+                    <object folder="1" file="0" x="28.4375" y="82.03125" angle="0" scale_x="0.324755" scale_y="0.324755"/>
+                </key>
+                <key id="1" time="831" spin="0">
+                    <object folder="1" file="0" x="28.4375" y="82.03125" angle="0" scale_x="0.008987" scale_y="0.008987"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="sparkle-2">
+                <key id="0">
+                    <object folder="1" file="1" x="-24.25" y="39.925858" angle="0" scale_x="0.430147" scale_y="0.430147"/>
+                </key>
+                <key id="1" time="1000">
+                    <object folder="1" file="1" x="-24.25" y="39.925858" angle="141.863087" scale_x="0.02" scale_y="0.02"/>
+                </key>
+                <key id="2" time="1470">
+                    <object folder="1" file="1" x="-24.25" y="39.925858" angle="249.086438" scale_x="0.212769" scale_y="0.212769"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="sparkle-2_000">
+                <key id="0" spin="0">
+                    <object folder="1" file="1" x="32.8125" y="12.5" angle="0" scale_x="0.551471" scale_y="0.560556"/>
+                </key>
+                <key id="1" time="273" spin="0">
+                    <object folder="1" file="1" x="32.8125" y="12.5" angle="0" scale_x="0.151144" scale_y="0.153634"/>
+                </key>
+                <key id="2" time="782" spin="0">
+                    <object folder="1" file="1" x="32.8125" y="12.5" angle="0" scale_x="0.072712" scale_y="0.07391"/>
+                </key>
+                <key id="3" time="920" spin="0">
+                    <object folder="1" file="1" x="32.8125" y="12.5" angle="0" scale_x="0.517157" scale_y="0.525677"/>
+                </key>
+                <key id="4" time="1309" spin="0">
+                    <object folder="1" file="1" x="32.8125" y="12.5" angle="0" scale_x="1.144608" scale_y="1.163466"/>
+                </key>
+                <key id="5" time="1658" spin="0">
+                    <object folder="1" file="1" x="32.8125" y="12.5" angle="0" scale_x="0.203431" scale_y="0.206783"/>
+                </key>
+            </timeline>
+            <timeline id="4" name="sparkle-1_000">
+                <key id="0" spin="0">
+                    <object folder="1" file="0" x="-26.577819" y="94.546569" angle="0" scale_x="0.284893" scale_y="0.284893"/>
+                </key>
+                <key id="1" time="746" spin="0">
+                    <object folder="1" file="0" x="-26.577819" y="94.546569" angle="0" scale_x="0.050315" scale_y="0.050315"/>
+                </key>
+                <key id="2" time="1466" spin="0">
+                    <object folder="1" file="0" x="-26.577819" y="94.546569" angle="0" scale_x="0.670242" scale_y="0.670242"/>
+                </key>
+                <key id="3" time="1882" spin="0">
+                    <object folder="1" file="0" x="-26.577819" y="94.546569" angle="0" scale_x="0.131175" scale_y="0.207624"/>
+                </key>
+            </timeline>
+            <timeline id="5" name="sparkle-1_001">
+                <key id="0">
+                    <object folder="1" file="0" x="5.333333" y="56" angle="0" scale_x="0.512114" scale_y="0.512114"/>
+                </key>
+                <key id="1" time="640">
+                    <object folder="1" file="0" x="5.333333" y="56" angle="407.642545" scale_x="0.037511" scale_y="0.037511"/>
+                </key>
+                <key id="2" time="1270">
+                    <object folder="1" file="0" x="5.333333" y="56" angle="176.633539" scale_x="0.257364" scale_y="0.257364"/>
+                </key>
+                <key id="3" time="1608">
+                    <object folder="1" file="0" x="5.333333" y="56" angle="282.011478" scale_x="0.835623" scale_y="0.835623"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="2" name="idle_basic" length="1000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="jar-0" folder="0" file="1" abs_x="2.025907" abs_y="3.38342" abs_pivot_x="0.474093" abs_pivot_y="0.11658" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" name="sparkle-1" folder="1" file="0" abs_x="28.4375" abs_y="82.03125" abs_pivot_x="0.515319" abs_pivot_y="0.484681" abs_angle="0" abs_scale_x="0.324755" abs_scale_y="0.324755" abs_a="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" name="sparkle-2" folder="1" file="1" abs_x="-24.25" abs_y="39.925858" abs_pivot_x="0.5" abs_pivot_y="0.480392" abs_angle="0" abs_scale_x="0.430147" abs_scale_y="0.430147" abs_a="1" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" name="sparkle-1_000" folder="1" file="0" abs_x="-26.577819" abs_y="94.546569" abs_pivot_x="0.515319" abs_pivot_y="0.484681" abs_angle="0" abs_scale_x="0.284893" abs_scale_y="0.284893" abs_a="1" timeline="3" key="0" z_index="3"/>
+                </key>
+                <key id="1" time="136">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="0" z_index="3"/>
+                </key>
+                <key id="2" time="320">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="0" z_index="3"/>
+                </key>
+                <key id="3" time="373">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="1" z_index="3"/>
+                </key>
+                <key id="4" time="391">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="1" z_index="3"/>
+                </key>
+                <key id="5" time="415">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="1" z_index="3"/>
+                </key>
+                <key id="6" time="460">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="0" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="1" z_index="3"/>
+                </key>
+                <key id="7" time="500">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="1" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="1" z_index="3"/>
+                </key>
+                <key id="8" time="635">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="1" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="1" z_index="3"/>
+                </key>
+                <key id="9" time="654">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="1" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="1" z_index="3"/>
+                </key>
+                <key id="10" time="733">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="1" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="2" z_index="3"/>
+                </key>
+                <key id="11" time="735">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="2" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="2" z_index="3"/>
+                </key>
+                <key id="12" time="804">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="2" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="2" z_index="3"/>
+                </key>
+                <key id="13" time="829">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="2" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="2" z_index="3"/>
+                </key>
+                <key id="14" time="941">
+                    <object_ref id="0" timeline="0" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="1" z_index="1"/>
+                    <object_ref id="2" timeline="2" key="2" z_index="2"/>
+                    <object_ref id="3" timeline="3" key="3" z_index="3"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="jar-0">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="2.025907" y="3.38342" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="sparkle-1">
+                <key id="0" spin="0">
+                    <object folder="1" file="0" x="28.4375" y="82.03125" angle="0" scale_x="0.324755" scale_y="0.324755"/>
+                </key>
+                <key id="1" time="415" spin="0">
+                    <object folder="1" file="0" x="28.4375" y="82.03125" angle="0" scale_x="0.008987" scale_y="0.008987"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="sparkle-2">
+                <key id="0">
+                    <object folder="1" file="1" x="-24.25" y="39.925858" angle="0" scale_x="0.430147" scale_y="0.430147"/>
+                </key>
+                <key id="1" time="500">
+                    <object folder="1" file="1" x="-24.25" y="39.925858" angle="141.863087" scale_x="0.02" scale_y="0.02"/>
+                </key>
+                <key id="2" time="735">
+                    <object folder="1" file="1" x="-24.25" y="39.925858" angle="249.086438" scale_x="0.212769" scale_y="0.212769"/>
+                </key>
+            </timeline>
+            <timeline id="3" name="sparkle-1_000">
+                <key id="0" spin="0">
+                    <object folder="1" file="0" x="-26.577819" y="94.546569" angle="0" scale_x="0.284893" scale_y="0.284893"/>
+                </key>
+                <key id="1" time="373" spin="0">
+                    <object folder="1" file="0" x="-26.577819" y="94.546569" angle="0" scale_x="0.050315" scale_y="0.050315"/>
+                </key>
+                <key id="2" time="733" spin="0">
+                    <object folder="1" file="0" x="-26.577819" y="94.546569" angle="0" scale_x="0.670242" scale_y="0.670242"/>
+                </key>
+                <key id="3" time="941" spin="0">
+                    <object folder="1" file="0" x="-26.577819" y="94.546569" angle="0" scale_x="0.131175" scale_y="0.207624"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>
