@@ -21,7 +21,7 @@ local function fn(Sim)
 	
 	inst.AnimState:SetBank("pumpkinpie")
 	inst.AnimState:SetBuild("pumpkinpie")
-	inst.AnimState:PlayAnimation("pumpkinpie", true)
+	inst.AnimState:PlayAnimation("idle", false)
 	
 	inst:AddTag("preparedfood")
     

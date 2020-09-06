@@ -226,7 +226,12 @@ local function makebird(name, soundname, no_feather, bank, custom_loot_setup, wa
         inst:AddComponent("occupier")
 
         inst:AddComponent("eater")
-        inst.components.eater:SetDiet({ FOODTYPE.SEEDS }, { FOODTYPE.SEEDS })
+        --inst.components.eater:SetDiet({ FOODTYPE.SEEDS }, { FOODTYPE.SEEDS })
+		if (name == "loon") then 
+		inst.components.eater:SetDiet({ FOODTYPE.SEEDS }, { FOODTYPE.OMNI })
+		else
+		inst.components.eater:SetDiet({ FOODTYPE.SEEDS }, { FOODTYPE.SEEDS })
+		end
 
         inst:AddComponent("sleeper")
         inst.components.sleeper:SetSleepTest(ShouldSleep)
