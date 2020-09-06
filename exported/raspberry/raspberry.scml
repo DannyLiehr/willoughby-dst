@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="b5">
+    <folder id="0" name="berries01">
+        <file id="0" name="berries01/berries01-0.png" width="140" height="68" pivot_x="0.486604" pivot_y="0.269125"/>
+        <file id="1" name="berries01/berries01-1.png" width="152" height="84" pivot_x="0.460194" pivot_y="0.272625"/>
+    </folder>
+    <entity id="0" name="raspberry">
+        <animation id="0" name="cooked_90s" length="34">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="berries01" folder="0" file="1" abs_x="2" abs_y="-5.05" abs_pivot_x="0.460194" abs_pivot_y="0.272625" abs_angle="0" abs_scale_x="1.55002" abs_scale_y="1.55002" abs_a="1" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="34">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="berries01">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="2" y="-5.05" angle="0" scale_x="1.55002" scale_y="1.55002"/>
+                </key>
+                <key id="1" time="34" spin="0">
+                    <object folder="0" file="1" x="2" y="-5.05" angle="0" scale_x="1.55002" scale_y="1.55002"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="idle_90s" length="34">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="berries01" folder="0" file="0" abs_x="2" abs_y="-5.05" abs_pivot_x="0.486604" abs_pivot_y="0.269125" abs_angle="0" abs_scale_x="1.55002" abs_scale_y="1.55002" abs_a="1" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="34">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="berries01">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="2" y="-5.05" angle="0" scale_x="1.55002" scale_y="1.55002"/>
+                </key>
+                <key id="1" time="34" spin="0">
+                    <object folder="0" file="0" x="2" y="-5.05" angle="0" scale_x="1.55002" scale_y="1.55002"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>
