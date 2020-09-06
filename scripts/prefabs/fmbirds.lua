@@ -150,10 +150,6 @@ local function makebird(name, soundname, no_feather, bank, custom_loot_setup, wa
         inst.entity:AddAnimState()
         inst.entity:AddDynamicShadow()
         inst.entity:AddSoundEmitter()
-        inst.SoundEmitter:SetVolume("cry_loon",.2)
-        inst.SoundEmitter:SetVolume("chirp",.2)
-        inst.SoundEmitter:SetVolume("night_loon",.2)
-        inst.SoundEmitter:SetVolume("takeoff",.2)
         inst.entity:AddNetwork()
         inst.entity:AddLightWatcher()
 

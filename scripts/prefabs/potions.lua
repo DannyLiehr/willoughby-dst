@@ -3,6 +3,7 @@ local assets =
     Asset("ANIM", "anim/potion.zip"),
 	--Asset("IMAGE", "images/inventoryimages/potion.xml"),
 }
+math.randomseed(os.time())
 local effecttime = 5
 local effectcounter = 0
 
