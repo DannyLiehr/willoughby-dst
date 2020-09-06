@@ -6,8 +6,11 @@ RemapSoundEvent( "dontstarve/characters/will/ghost_LP", "will/sound/ghost_LP" )
 RemapSoundEvent( "dontstarve/characters/will/emote", "will/sound/emote" )
 RemapSoundEvent( "dontstarve/characters/will/pose", "will/sound/pose" )
 RemapSoundEvent( "dontstarve/characters/will/yawn", "will/sound/yawn" )
--- 
--- RemapSoundEvent( "dontstarve/sounds/loon/cry", "fmbirds/birds/cry_loon" )
--- RemapSoundEvent( "dontstarve/sounds/loon/chirp", "fmbirds/birds/chirp_loon" )
--- RemapSoundEvent( "dontstarve/sounds/loon/night", "fmbirds/birds/loon_night" )
--- RemapSoundEvent( "dontstarve/sounds/loon/takeoff", "fmbirds/birds/takeoff_loon" )
+
+-- takeoff = soundbank.."/birds/takeoff_"..soundname,
+-- chirp = soundbank.."/birds/chirp_"..soundname,
+
+RemapSoundEvent( "dontstarve/birds/cry_loon", "fmbirds/birds/cry_loon" )
+RemapSoundEvent( "dontstarve/birds/chirp_loon", "fmbirds/birds/chirp_loon" )
+RemapSoundEvent( "dontstarve/birds/night_loon", "fmbirds/birds/loon_night" )
+RemapSoundEvent( "dontstarve/birds/takeoff_loon", "fmbirds/birds/takeoff_loon" )

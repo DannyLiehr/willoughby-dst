@@ -150,6 +150,10 @@ local function makebird(name, soundname, no_feather, bank, custom_loot_setup, wa
         inst.entity:AddAnimState()
         inst.entity:AddDynamicShadow()
         inst.entity:AddSoundEmitter()
+        inst.SoundEmitter:SetVolume("cry_loon",.2)
+        inst.SoundEmitter:SetVolume("chirp",.2)
+        inst.SoundEmitter:SetVolume("night_loon",.2)
+        inst.SoundEmitter:SetVolume("takeoff",.2)
         inst.entity:AddNetwork()
         inst.entity:AddLightWatcher()
 
@@ -235,6 +239,8 @@ local function makebird(name, soundname, no_feather, bank, custom_loot_setup, wa
         inst.components.inventoryitem.nobounce = true
         inst.components.inventoryitem.canbepickedup = false
         inst.components.inventoryitem.canbepickedupalive = true
+        inst.components.inventoryitem.imagename = name
+        inst.components.inventoryitem.atlasname = "images/inventoryimages/"..name..".xml"
         if water_bank == nil then
             inst.components.inventoryitem:SetSinks(true)
         end
@@ -326,7 +332,7 @@ local function puffin_loot_setup(inst, prefab_deps)
 end
 
 -- makebird(name, soundname, no_feather, bank, custom_loot_setup, water_bank, tacklesketch)
-return makebird("loon", "crow", true, "crow", nil, nil, nil)
+return makebird("loon", "loon", true, "crow", nil, nil, nil)
     -- makebird("robin", "robin", nil, nil, nil, nil, true),
     -- makebird("robin_winter", "junco", nil, nil, nil, nil, true),
     -- makebird("canary", "canary", nil, nil, nil, nil, true),
