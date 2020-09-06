@@ -11,6 +11,6 @@ RemapSoundEvent( "dontstarve/characters/will/yawn", "will/sound/yawn" )
 -- chirp = soundbank.."/birds/chirp_"..soundname,
 
 -- RemapSoundEvent( "dontstarve/birds/cry_loon", "fmbirds/birds/cry_loon" )
-RemapSoundEvent( "dontstarve/birds/chirp_loon", "loon/loon/chirp_loon" )
+RemapSoundEvent( "dontstarve/birds/chirp_loon", "loon/birds/chirp_loon" )
 -- RemapSoundEvent( "dontstarve/birds/night_loon", "fmbirds/birds/loon_night" )
-RemapSoundEvent( "dontstarve/birds/takeoff_loon", "loon/loon/takeoff_loon" )
+RemapSoundEvent( "dontstarve/birds/takeoff_loon", "loon/birds/takeoff_loon" )

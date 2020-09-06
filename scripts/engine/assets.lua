@@ -176,8 +176,8 @@ Assets = {
 	Asset( "IMAGE", "images/inventoryimages/bbq.tex" ),
     Asset( "ATLAS", "images/inventoryimages/bbq.xml" ),
 	
-	Asset("SOUNDPACKAGE", "sound/fmbirds.fev"),
-    Asset("SOUND", "sound/fmbirds.fsb"),
+	Asset("SOUNDPACKAGE", "sound/loon.fev"),
+    Asset("SOUND", "sound/loon.fsb"),
 -------------------------------------------------------------------
 	--Map icon section of files
 	Asset( "IMAGE", "images/minimap/bumpkinfarm.tex" ),
